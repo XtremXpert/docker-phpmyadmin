@@ -29,7 +29,7 @@ RUN apk -U upgrade && \
  	curl --location https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz | tar xzf - && \
  	mv phpMyAdmin* /www && \
  	rm -rf /www/js/jquery/src/ /www/examples /www/po/ && \
- 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+ 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime 
 
 COPY config.inc.php /www/
 COPY run.sh /run.sh
