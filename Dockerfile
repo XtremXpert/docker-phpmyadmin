@@ -23,11 +23,12 @@ RUN apk -U upgrade && \
 		php-openssl \
 		php-curl \
 		php-opcache \
-		php-json curl
-RUN	rm -rf /var/cache/apk/* && \
+		php-json curl \
+	&& \ 
+	rm -rf /var/cache/apk/* && \
  	curl --location https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz | tar xzf - && \
  	mv phpMyAdmin* /www && \
- 	rm -rf /www/js/jquery/src/ /www/examples /www/po/
+ 	rm -rf /www/js/jquery/src/ /www/examples /www/po/ \
  	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 
 COPY config.inc.php /www/
