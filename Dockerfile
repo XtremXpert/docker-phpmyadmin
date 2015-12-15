@@ -2,19 +2,18 @@ FROM alpine:latest
 
 MAINTAINER Xtremxpert <xtremxpert@xtremxpert.com>
 
-ENV \
-		LANG="fr_CA.UTF-8" \
-  LC_ALL="fr_CA.UTF-8" \
-  LANGUAGE="fr_CA.UTF-8" \
-  TZ="America/Toronto" \
-  TERM="xterm"
+ENV LANG="fr_CA.UTF-8" \
+	LC_ALL="fr_CA.UTF-8" \
+	LANGUAGE="fr_CA.UTF-8" \
+	TZ="America/Toronto" \
+	TERM="xterm"
 
 RUN apk -U upgrade && \
- apk --update add \
- 	tzdata \
-  openntpd \
-  nano \
-  mc \
+	apk --update add \
+		tzdata \
+		openntpd \
+		nano \
+		mc \
 		php-cli \
 		php-mysqli \
 		php-ctype \
@@ -25,12 +24,12 @@ RUN apk -U upgrade && \
 		php-curl \
 		php-opcache \
 		php-json curl \
- && \
- rm -rf /var/cache/apk/* && \
- curl --location https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz | tar xzf - && \
- mv phpMyAdmin* /www && \
- rm -rf /www/js/jquery/src/ /www/examples /www/po/
- ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+ 	&& \
+ 	rm -rf /var/cache/apk/* && \
+ 	curl --location https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz | tar xzf - && \
+ 	mv phpMyAdmin* /www && \
+ 	rm -rf /www/js/jquery/src/ /www/examples /www/po/
+ 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 
 COPY config.inc.php /www/
 COPY run.sh /run.sh
