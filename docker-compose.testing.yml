@@ -1,6 +1,6 @@
-phpmyadmin:
-    image: phpmyadmin/phpmyadmin:testing
-    container_name: myadmin
+docker-phpmyadmin:
+    image: XtremXpert/docker0phpmyadmin:testing
+    container_name: myxadmin
     environment:
      - PMA_ARBITRARY=1
     restart: always
