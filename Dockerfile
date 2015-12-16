@@ -1,4 +1,4 @@
-FROM xtremxpert/alpine:latest
+FROM xtremxpert/docker-alpine:latest
 
 MAINTAINER Xtremxpert <xtremxpert@xtremxpert.com>
 
